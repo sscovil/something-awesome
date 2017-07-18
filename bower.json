@@ -1,0 +1,15 @@
+{
+  "name": "bower",
+  "description": "bower-initiated JSOn file used for bower-based package management",
+  "main": "src/app.js",
+  "license": "ISC",
+  "homepage": "https://github.com/Keeeeeeeks/something-awesome",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
