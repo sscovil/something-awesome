@@ -2,13 +2,14 @@ body {
   background-color: #d9e6fc;
 }
 h1 {
+  display: inline;
   font-size: 58px;
   background-color: #21e342;
-  text-align: center;
+  float: center;
 }
 
 h2 {
+  clear: left;
   font-size: 22px;
-  background-color: purple;
   text-align: justify;
 }
