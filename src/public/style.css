@@ -8,9 +8,7 @@ body {
   font-family: 'Merriweather', serif;
 }
 
-.margin {
 
-}
 
 header {
   margin: 0 !important;
@@ -34,25 +32,31 @@ div.content-container {
   align-content: flex-start;
   }
 
+main {
+  padding: 20px 20px 20px 20px;
+}
+
+nav {
+  padding: 20px 20px 20px 20px;
+}
 
 div.nav-width {
     align-items: flex-start;
     flex: 4;
-
 }
+
 div.main-width {
   align-items: flex-start;
   flex: 8;
 }
+
 footer {
   display: block;
   text-align: center;
-
 }
 
 ul {
   list-style-type: none;
-
 }
 
 .plaintext-color {
