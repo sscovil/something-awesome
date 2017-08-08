@@ -2,23 +2,17 @@
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Open Sans', sans-serif;
+  color: #363636;
 }
 
 body {
   font-family: 'Merriweather', serif;
+  color: #4a4a4a;
 }
-
-
 
 header {
-  margin: 0 !important;
-  display: block;
+  margin: 0;
 }
-
-.page {
-    background-color: lightgrey;
-}
-
 
 .content-container {
   display: flex;
@@ -38,32 +32,26 @@ nav {
 }
 
 .nav-width {
-    align-items: flex-start;
     flex: 4;
 }
 
 .main-width {
-  align-items: flex-start;
   flex: 8;
 }
 
 footer {
-  display: block;
   text-align: center;
 }
 
-ul {
+.no-bullets {
   list-style-type: none;
+  padding: 0;
 }
 
-.plaintext-color {
-  color: #4a4a4a;
+a {
+  color: #00d1b2;
 }
 
 a:hover {
   color: #363636;
-}
-
-a:active {
-  color: #00d1b2;
 }
