@@ -1,12 +1,57 @@
-body {
-  background-color: #d9e6fc;
-}
-h1 {
-  font-size: 58px;
-  background-color: #21e342;
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans');
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Open Sans', sans-serif;
+  color: #363636;
 }
 
-h2 {
-  font-size: 22px;
-  text-align: justify;
+body {
+  font-family: 'Merriweather', serif;
+  color: #4a4a4a;
+}
+
+header {
+  margin: 0;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+main {
+  padding: 20px;
+}
+
+nav {
+  padding: 20px;
+}
+
+.nav-width {
+    flex: 4;
+}
+
+.main-width {
+  flex: 8;
+}
+
+footer {
+  text-align: center;
+}
+
+.no-bullets {
+  list-style-type: none;
+  padding: 0;
+}
+
+a {
+  color: #00d1b2;
+}
+
+a:hover {
+  color: #363636;
 }
