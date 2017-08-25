@@ -55,3 +55,14 @@ a {
 a:hover {
   color: #363636;
 }
+
+#contact-form .required {
+    font-weight:bold;
+    color:#F00;
+ }
+
+
+
+#req-field-desc {
+    font-style:italic;
+}
