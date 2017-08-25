@@ -1,8 +1,13 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-
+const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
+
+app.post('/api/forms/contact', bodyParser.urlencoded(), function(req, res) {
+  console.log(req.body);
+  res.sendStatus(204);
+});
 
 app.use(express.static(path.join(__dirname, 'public')));
 
