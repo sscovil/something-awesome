@@ -4,7 +4,11 @@ const app = express();
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 
+<<<<<<< HEAD
 app.post('/api/forms/contact', bodyParser.urlencoded({extended: true}), function(req, res) {
+=======
+app.post('/api/forms/contact', bodyParser.urlencoded(), function(req, res) {
+>>>>>>> 0da28722c78f599bbac890ddca7e03ed59a409db
   console.log(req.body);
   res.sendStatus(204);
 });
