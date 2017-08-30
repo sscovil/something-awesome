@@ -4,6 +4,7 @@
   "description": "test for submitting pull requests in command line",
   "main": "src/app.js",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express": "^4.15.3"
   },
   "scripts": {
