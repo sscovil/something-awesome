@@ -129,10 +129,34 @@ $ node src/app.js
 With the server running, open your favorite web browser and visit:
 http://localhost:3000
 
-If you want to specify the port number, set the `PORT` environment variable like so:
+### Environment Variables
+
+In order to mitigate uploading private keys, this repository uses a .env file for storing environment variables.
+
+For example, if you want to specify the port number, set the `PORT` environment variable like so:
+
+```.env
+PORT=8080
+```
+
+To manage this, we will install dotenv in the root directory using npm, and save it as a dependency in our package.json file:
 
 ```bash
-$ PORT=8080 node src/app.js
+$ npm install dotenv --save
 ```
+
+We will also require it at the top of our src/app.js file:
+
+```javascript
+require('dotenv').config()
+```
+
+Environment Variables Supported:
+* PORT
+* MAILGUN_SECRET
+* MAILGUN_RECIPIENT
+
+More on dotenv:
+https://www.npmjs.com/package/dotenv
 
 To stop the server, use `CTRL+C`.
