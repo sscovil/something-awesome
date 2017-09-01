@@ -1,5 +1,5 @@
-const mailgun_secret = process.env.MAILGUN_SECRET
-const api_key = mailgun_secret;
+const api_key = process.env.MAILGUN_SECRET;
+const mailgun_recipient = process.env.MAILGUN_RECIPIENT;
 const domain = 'sandbox6eddd0f1d9eb4fddbcccea158cc97fd6.mailgun.org';
 const mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 
