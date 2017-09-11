@@ -1,11 +1,10 @@
 'use strict';
 
 require('dotenv').config();
-const mailer = require('./mailer');
-
-const express = require('express');
-const path = require('path');
 const bodyParser = require('body-parser');
+const express = require('express');
+const mailer = require('./mailer');
+const path = require('path');
 
 const app = express();
 
@@ -24,7 +23,7 @@ app.post('/api/forms/contact', bodyParser.urlencoded({ extended: true }), functi
         return res.status(400).send(err.message);
       }
       console.log(body);
-      return res.sendStatus(500);
+      return res.sendStatus(204);
     });
   }
   catch (err) {
