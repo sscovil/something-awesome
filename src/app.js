@@ -5,43 +5,34 @@ const mailer = require('./mailer');
 
 const express = require('express');
 const path = require('path');
-const app = express();
 const bodyParser = require('body-parser');
+
+const app = express();
+
 const port = process.env.PORT;
-const mailgun_recipient = process.env.MAILGUN_RECIPIENT;
 
-app.post('/api/forms/contact', bodyParser.urlencoded({extended: true}), function(req, res) {
-  let data = {
-    to: mailgun_recipient,
-    from: req.body.email,
-    subject: req.body.subject,
-    message: req.body.message,
-  }
+app.post('/api/forms/contact', bodyParser.urlencoded({ extended: true }), function(req, res) {
+  try {
+    const to = mailer.mailgun_admin_email;
+    const from = req.body.email;
+    const subject = req.body.subject;
+    const message = req.body.message;
 
-//  mailer.sendText(to, from, subject, message, function (err, body)){
-//    if(err) {
-//      return res.status(400).send(err.messge);
-//    }
-//    else {
-//      return res.sendStatus(204);
-//      console.log(req.body);
-//    }
-//  }
-
-  }
-);
-
-  mailer.sendText(data, function(err,body) {
-
-
-    mailgun.messages().send(data, function (error, body) {
-    if(err) {
-      return res.status(400).send(err.message);
+    mailer.sendText(to, from, subject, message, function(err, body) {
+      if (err) {
+        console.log(err);
+        return res.status(400).send(err.message);
       }
-    else {
-    console.log(res.body);}
+      console.log(body);
+      return res.sendStatus(500);
     });
+  }
+  catch (err) {
+    console.log(err);
+    return res.sendStatus(500);
+  }
 });
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 
