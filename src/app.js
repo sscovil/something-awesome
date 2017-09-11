@@ -1,3 +1,5 @@
+'use strict';
+
 require('dotenv').config();
 const mailer = require('./mailer');
 
