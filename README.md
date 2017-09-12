@@ -129,10 +129,25 @@ $ node src/app.js
 With the server running, open your favorite web browser and visit:
 http://localhost:3000
 
-If you want to specify the port number, set the `PORT` environment variable like so:
+### Environment Variables
+
+In order to prevent uploading private keys, this repository uses a .env file for storing environment variables.
+
+We list .env as a file type in our .gitignore file in order to make sure that the .env file is never committed.
+
+For example, if you want to specify the port number, you would set the `PORT` environment variable in the .env file like so:
 
 ```bash
-$ PORT=8080 node src/app.js
+PORT=8080
 ```
+
+Environment Variables Supported:
+* MAILGUN_DOMAIN
+* MAILGUN_SECRET
+* MAILGUN_ADMIN_EMAIL
+* PORT
+
+More on dotenv:
+https://www.npmjs.com/package/dotenv
 
 To stop the server, use `CTRL+C`.
