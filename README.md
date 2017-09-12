@@ -139,22 +139,13 @@ For example, if you want to specify the port number, set the `PORT` environment 
 PORT=8080
 ```
 
-To manage this, we will install dotenv in the root directory using npm, and save it as a dependency in our package.json file:
+To manage this, we will install dotenv in the root directory using npm, and save it as a dependency in our package.json file. To ensure that .gitignore ignores this file, make sure that .env files are ignored in your .gitignore file. 
 
-```bash
-$ npm install dotenv --save
-```
-
-We will also require it at the top of our src/app.js file:
-
-```javascript
-require('dotenv').config()
-```
 
 Environment Variables Supported:
 * MAILGUN_DOMAIN
 * MAILGUN_SECRET
-* MAILGUN_RECIPIENT
+* MAILGUN_ADMIN_EMAIL
 * PORT
 
 More on dotenv:
