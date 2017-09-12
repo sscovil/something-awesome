@@ -1,9 +1,9 @@
 'use strict';
 
-const api_key = process.env.MAILGUN_SECRET;
+const apiKey = process.env.MAILGUN_SECRET;
 const domain = process.env.MAILGUN_DOMAIN;
-const mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
-const mailgun_admin_email = process.env.MAILGUN_ADMIN_EMAIL;
+const mailgun = require('mailgun-js')({apiKey, domain});
+const mailgunAdminEmail = process.env.MAILGUN_ADMIN_EMAIL;
 
 exports.sendText = function(to, from, subject, message, callback) {
   const data = {
@@ -15,4 +15,4 @@ exports.sendText = function(to, from, subject, message, callback) {
   mailgun.messages().send(data, callback);
 };
 
-exports.mailgun_admin_email = mailgun_admin_email;
+exports.ADMIN_EMAIL = mailgunAdminEmail;

@@ -131,11 +131,11 @@ http://localhost:3000
 
 ### Environment Variables
 
-In order to mitigate uploading private keys, this repository uses a .env file for storing environment variables.
+In order to prevent uploading private keys, this repository uses a .env file for storing environment variables.
 
 For example, if you want to specify the port number, set the `PORT` environment variable like so:
 
-```.env
+```bash
 PORT=8080
 ```
 
@@ -152,9 +152,10 @@ require('dotenv').config()
 ```
 
 Environment Variables Supported:
-* PORT
+* MAILGUN_DOMAIN
 * MAILGUN_SECRET
 * MAILGUN_RECIPIENT
+* PORT
 
 More on dotenv:
 https://www.npmjs.com/package/dotenv

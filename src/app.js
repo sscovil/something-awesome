@@ -12,7 +12,7 @@ const port = process.env.PORT;
 
 app.post('/api/forms/contact', bodyParser.urlencoded({ extended: true }), function(req, res) {
   try {
-    const to = mailer.mailgun_admin_email;
+    const to = mailer.ADMIN_EMAIL;
     const from = req.body.email;
     const subject = req.body.subject;
     const message = req.body.message;
