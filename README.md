@@ -133,14 +133,13 @@ http://localhost:3000
 
 In order to prevent uploading private keys, this repository uses a .env file for storing environment variables.
 
-For example, if you want to specify the port number, set the `PORT` environment variable like so:
+We list .env as a file type in our .gitignore file in order to make sure that the .env file is never committed.
+
+For example, if you want to specify the port number, you would set the `PORT` environment variable in the .env file like so:
 
 ```bash
 PORT=8080
 ```
-
-To manage this, we will install dotenv in the root directory using npm, and save it as a dependency in our package.json file. To ensure that .gitignore ignores this file, make sure that .env files are ignored in your .gitignore file. 
-
 
 Environment Variables Supported:
 * MAILGUN_DOMAIN
