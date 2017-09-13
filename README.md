@@ -148,7 +148,7 @@ Environment Variables Supported:
 * PORT
 * PGHOST (default: 'localhost')
 * PGUSER (default: process.env.USER)
-* PGPASSWORD (default: NULL)
+* PGPASSWORD
 * PGPORT (default: 5432)
 
 

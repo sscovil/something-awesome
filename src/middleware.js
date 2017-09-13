@@ -10,7 +10,7 @@ exports.saveContactFormData = function(req, res, next) {
     .insert({ name, email, subject, message })
     .then((result) => {
       console.log(result);
-    next();
+      next();
     })
     .catch((err) => {
       console.log(err);

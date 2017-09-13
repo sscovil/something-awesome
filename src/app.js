@@ -9,7 +9,7 @@ const path = require('path');
 
 const app = express();
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 app.post('/api/forms/contact', bodyParser.urlencoded({ extended: true }), middleware.saveContactFormData, function(req, res) {
   try {
