@@ -4,13 +4,14 @@ require('dotenv').config();
 const bodyParser = require('body-parser');
 const express = require('express');
 const mailer = require('./mailer');
+const middleware = require('./middleware');
 const path = require('path');
 
 const app = express();
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
-app.post('/api/forms/contact', bodyParser.urlencoded({ extended: true }), function(req, res) {
+app.post('/api/forms/contact', bodyParser.urlencoded({ extended: true }), middleware.saveContactFormData, function(req, res) {
   try {
     const to = mailer.ADMIN_EMAIL;
     const from = req.body.email;

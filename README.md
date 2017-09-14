@@ -145,7 +145,12 @@ Environment Variables Supported:
 * MAILGUN_DOMAIN
 * MAILGUN_SECRET
 * MAILGUN_ADMIN_EMAIL
-* PORT
+* PORT (default: 3000)
+* PGHOST (default: 'localhost')
+* PGUSER (default: process.env.USER)
+* PGPASSWORD
+* PGPORT (default: 5432)
+
 
 More on dotenv:
 https://www.npmjs.com/package/dotenv
