@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <%- include partials/meta.ejs %>
+</head>
+<body>
+  <%- include partials/header.ejs %>
+
+  <div class="content-container">
+    <div class="nav-width">
+      <%- include partials/nav.ejs %>
+    </div>
+
+    <main class="main-width">
+      <article>
+        <%- post.content %>
+      </article>
+    </main>
+  </div>
+
+  <%- include partials/footer.ejs %>
+</body>
+</html>
