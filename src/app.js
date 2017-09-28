@@ -108,10 +108,9 @@ app.get('/', function(req, res) {
 app.get('/about', function(req, res) {
 
   res.render('page', {
-    page: pages.find(function (content){
-      return content.id = "about";
-    }),
-    posts: posts,
+    page: pages.find(function (page){
+      return page.id === "about";
+    })
   })
 });
 
@@ -125,10 +124,10 @@ app.get('/contact', function(req, res) {
 app.get('/posts/:id', function(req, res) {
 
   res.render('post', {
-    page: pages,
-    posts: posts,
-  })
-
+    post: posts.find(function (post) {
+      return post.id === Number(req.params.id)
+      })
+    })
 });
 
 
@@ -155,7 +154,7 @@ app.post('/api/forms/contact', bodyParser.urlencoded({ extended: true }), middle
 });
 
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/css', express.static(path.join(__dirname, 'public')));
 
 app.listen(port, function() {
   console.log(`Server is listening on port ${port}!`);
