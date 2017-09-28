@@ -124,8 +124,8 @@ app.get('/contact', function(req, res) {
 
 app.get('/posts/:id', function(req, res) {
 
-  res.render('posts', {
-    page: page,
+  res.render('post', {
+    page: pages,
     posts: posts,
   })
 
