@@ -100,7 +100,6 @@ app.get('/', function(req, res) {
 
   res.render('index', {
     posts: posts,
-    pages: pages
   });
 
 });
@@ -109,7 +108,7 @@ app.get('/about', function(req, res) {
 
   res.render('page', {
     page: pages.find(function (page){
-      return page.id === "about";
+      return page.id === 'about';
     })
   })
 });
