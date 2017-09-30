@@ -1,0 +1,15 @@
+<h2>
+  Latest Posts:
+</h2>
+
+<ul class="no-bullets">
+  <% posts.forEach(function(post) { %>
+  <li>
+    <article>
+      <a href="/posts/<%= post.id %>">
+        <%= post.title %>
+      </a>
+    </article>
+  </li>
+  <% }) %>
+</ul>

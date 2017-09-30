@@ -1,0 +1,11 @@
+<nav>
+  <ul class="no-bullets">
+    <% nav.links.forEach(function(link) { %>
+    <li>
+      <a href="<%= link.path %>">
+        <%= link.text %>
+      </a>
+    </li>
+    <% }) %>
+  </ul>
+</nav>
