@@ -99,33 +99,45 @@ const posts = [
 app.get('/', function(req, res) {
 
   res.render('index', {
-    posts: posts,
+    posts: posts
   });
 
 });
 
 app.get('/about', function(req, res) {
+  const page = pages.find(function (page){
+    return page.id === 'about';
+  });
 
   res.render('page', {
-    page: pages.find(function (page){
-      return page.id === 'about';
-    })
+    page: page,
+    header: {
+      title: page.title
+    }
   })
 });
 
 app.get('/contact', function(req, res) {
+  const page = pages.find((page) => page.id === 'contact');
 
   res.render('page', {
-    page: pages.find((page) => page.id === 'contact')
+    page: page,
+    header: {
+      title: page.title
+    }
   })
 });
 
 app.get('/posts/:id', function(req, res) {
+  const post = posts.find(function (post) {
+    return post.id === Number(req.params.id)
+  });
 
   res.render('post', {
-    post: posts.find(function (post) {
-      return post.id === Number(req.params.id)
-      })
+    post: post,
+    header: {
+      title: post.title
+    }
     })
 });
 
