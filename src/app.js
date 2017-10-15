@@ -117,6 +117,7 @@ app.get('/about', function(req, res) {
   })
 });
 
+
 app.get('/contact', function(req, res) {
   const page = pages.find((page) => page.id === 'contact');
 
@@ -141,6 +142,15 @@ app.get('/posts/:id', function(req, res) {
     })
 });
 
+/* Want to make an app.get endpoint that involves a .forEach loop that can parse string,
+and res.render based on the text (e.g. : '/contact' will lead to the code in the above '/contact' endpoint,
+and the same for '/about')
+
+Remember: to handle req.params and make sure it's readable, must do like this since pageid from URL is req.params.pageid:
+app.get('/:pageid', function(req, res)) {
+  const pageid = req.params.pageid
+}
+*/
 
 app.post('/api/forms/contact', bodyParser.urlencoded({ extended: true }), middleware.saveContactFormData, function(req, res) {
   try {
