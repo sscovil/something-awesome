@@ -104,31 +104,6 @@ app.get('/', function(req, res) {
 
 });
 
-app.get('/about', function(req, res) {
-  const page = pages.find(function (page){
-    return page.id === 'about';
-  });
-
-  res.render('page', {
-    page: page,
-    header: {
-      title: page.title
-    }
-  })
-});
-
-
-app.get('/contact', function(req, res) {
-  const page = pages.find((page) => page.id === 'contact');
-
-  res.render('page', {
-    page: page,
-    header: {
-      title: page.title
-    }
-  })
-});
-
 app.get('/posts/:id', function(req, res) {
   const post = posts.find(function (post) {
     return post.id === Number(req.params.id)
@@ -139,27 +114,25 @@ app.get('/posts/:id', function(req, res) {
     header: {
       title: post.title
     }
-    })
+  });
 });
 
-/*ask Shaun about the below, and write it out in words; lots of dead ends*/
-app.get('/:pagestring', function(req, res) {
-  const pagestring = String(req.params.pageid);
-  pages.forEach((page) => {
-    while (pageid == page.id) {
-      const page = pages.find((page) => page.id === pageid);
-    }
+app.get('/:pageId', function(req, res) {
+  const page = pages.find(function(page) {
+    return page.id === req.params.pageId;
+  });
 
-  })
+  if (page) {
+    return res.render('page', {
+      page: page,
+      header: {
+        title: page.title
+      }
+    });
+  }
 
-  res.render('page,' {
-    page: pagestring;
-    header: {
-      title:
-    }
-
-  })
-})
+  return res.sendStatus(404);
+});
 /* Want to make an app.get endpoint that involves a .forEach loop that can parse string,
 and res.render based on the text (e.g. : '/contact' will lead to the code in the above '/contact' endpoint,
 and the same for '/about')
