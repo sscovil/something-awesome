@@ -142,6 +142,24 @@ app.get('/posts/:id', function(req, res) {
     })
 });
 
+/*ask Shaun about the below, and write it out in words; lots of dead ends*/
+app.get('/:pagestring', function(req, res) {
+  const pagestring = String(req.params.pageid);
+  pages.forEach((page) => {
+    while (pageid == page.id) {
+      const page = pages.find((page) => page.id === pageid);
+    }
+
+  })
+
+  res.render('page,' {
+    page: pagestring;
+    header: {
+      title:
+    }
+
+  })
+})
 /* Want to make an app.get endpoint that involves a .forEach loop that can parse string,
 and res.render based on the text (e.g. : '/contact' will lead to the code in the above '/contact' endpoint,
 and the same for '/about')
