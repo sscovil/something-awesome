@@ -1,9 +1,12 @@
 <nav>
   <ul class="no-bullets">
-    <% nav.links.forEach(function(link) { %>
+    <a href="/">
+      Home
+    </a>
+    <% pages.forEach(function(page) { %>
     <li>
-      <a href="<%= link.path %>">
-        <%= link.text %>
+      <a href="<%= page.id %>">
+        <%= page.title %>
       </a>
     </li>
     <% }) %>

@@ -14,26 +14,6 @@ const port = process.env.PORT || 3000;
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-Object.assign(app.locals, {
-  meta: {
-    title: 'My Blog',
-    description: 'A blog about something awesome!'
-  },
-  header: {
-    title: 'Something Awesome'
-  },
-  footer: {
-    year: new Date().getFullYear()
-  },
-  nav: {
-    links: [
-      { text: 'Home', path: '/' },
-      { text: 'About', path: '/about' },
-      { text: 'Contact', path: '/contact' }
-    ]
-  }
-});
-
 const pages = [
   {
     id: 'about',
@@ -96,6 +76,20 @@ const posts = [
   }
 ];
 
+Object.assign(app.locals, {
+  meta: {
+    title: 'My Blog',
+    description: 'A blog about something awesome!'
+  },
+  header: {
+    title: 'Something Awesome'
+  },
+  footer: {
+    year: new Date().getFullYear()
+  },
+  pages
+});
+
 app.get('/', function(req, res) {
 
   res.render('index', {
@@ -131,17 +125,17 @@ app.get('/:pageId', function(req, res) {
     });
   }
 
+/*  if (page == req.params.pageId) {
+    return res.render('page', {
+      page: page,
+      header: {
+        title: page.title
+      }
+    });
+  } */
+
   return res.sendStatus(404);
 });
-/* Want to make an app.get endpoint that involves a .forEach loop that can parse string,
-and res.render based on the text (e.g. : '/contact' will lead to the code in the above '/contact' endpoint,
-and the same for '/about')
-
-Remember: to handle req.params and make sure it's readable, must do like this since pageid from URL is req.params.pageid:
-app.get('/:pageid', function(req, res)) {
-  const pageid = req.params.pageid
-}
-*/
 
 app.post('/api/forms/contact', bodyParser.urlencoded({ extended: true }), middleware.saveContactFormData, function(req, res) {
   try {
