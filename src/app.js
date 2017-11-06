@@ -125,15 +125,6 @@ app.get('/:pageId', function(req, res) {
     });
   }
 
-/*  if (page == req.params.pageId) {
-    return res.render('page', {
-      page: page,
-      header: {
-        title: page.title
-      }
-    });
-  } */
-
   return res.sendStatus(404);
 });
 
