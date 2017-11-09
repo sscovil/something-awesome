@@ -2,6 +2,11 @@
 
 const db = require('./db');
 
+exports.currentPath = function(req, res, next) {
+  const currentPath = req.originalUrl;
+  next();
+};
+
 exports.saveContactFormData = function(req, res, next) {
   const { name, email, subject, message } = req.body;
 

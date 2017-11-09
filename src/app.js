@@ -11,6 +11,7 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -18,6 +19,8 @@ const pages = [
   {
     id: 'about',
     title: 'About',
+    path: '/about',
+    linkText: 'About',
     content: `<p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut posuere lectus. Morbi iaculis pellentesque auctor. Quisque laoreet imperdiet congue. Curabitur vestibulum feugiat cursus. Praesent eget iaculis nunc, ut pulvinar felis. Donec faucibus elementum
           sapien non egestas. Mauris ultrices auctor lacus quis auctor.
@@ -43,6 +46,8 @@ const pages = [
   {
     id: 'contact',
     title: 'Contact Us!',
+    path: '/contact',
+    linkText: 'Contact',
     content: `<form method="POST" action="/api/forms/contact">
               <label for="name">Name: <span class="required">*</span></label>
               <input id="name" name="name" value="" placeholder="Jimmy Choo" autofocus required/>
@@ -87,13 +92,17 @@ Object.assign(app.locals, {
   footer: {
     year: new Date().getFullYear()
   },
-  pages
+  pages: pages,
+  currentPath: middleware.currentPath
 });
+
+app.use(middleware.currentPath);
 
 app.get('/', function(req, res) {
 
   res.render('index', {
-    posts: posts
+    posts: posts,
+    req: req
   });
 
 });
@@ -107,7 +116,8 @@ app.get('/posts/:id', function(req, res) {
     post: post,
     header: {
       title: post.title
-    }
+    },
+    req: req
   });
 });
 
@@ -121,7 +131,8 @@ app.get('/:pageId', function(req, res) {
       page: page,
       header: {
         title: page.title
-      }
+      },
+      req: req
     });
   }
 
