@@ -92,8 +92,7 @@ Object.assign(app.locals, {
   footer: {
     year: new Date().getFullYear()
   },
-  pages: pages,
-  currentPath: middleware.currentPath
+  pages: pages
 });
 
 app.use(middleware.currentPath);

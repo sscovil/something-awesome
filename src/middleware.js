@@ -3,7 +3,7 @@
 const db = require('./db');
 
 exports.currentPath = function(req, res, next) {
-  const currentPath = req.originalUrl;
+  res.locals.currentPath = req.originalUrl;
   next();
 };
 

@@ -1,6 +1,6 @@
 <nav>
   <ul class="no-bullets">
-    <% if (req.originalUrl === "/") { %>
+    <% if (currentPath === "/") { %>
       <li>
         Home
       </li>
@@ -13,7 +13,7 @@
     <% } %>
 
     <% pages.forEach(function(page) { %>
-      <% if (req.originalUrl === page.path) { %>
+      <% if (currentPath === page.path) { %>
         <li>
           <%= page.linkText %>
         </li>
