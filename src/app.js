@@ -100,8 +100,7 @@ app.use(middleware.currentPath);
 app.get('/', function(req, res) {
 
   res.render('index', {
-    posts: posts,
-    req: req
+    posts: posts
   });
 
 });
@@ -111,13 +110,15 @@ app.get('/posts/:id', function(req, res) {
     return post.id === Number(req.params.id)
   });
 
-  res.render('post', {
+  if (post) {res.render('post', {
     post: post,
     header: {
       title: post.title
-    },
-    req: req
+    }
   });
+  }
+
+  return res.sendStatus(404);
 });
 
 app.get('/:pageId', function(req, res) {
@@ -130,8 +131,7 @@ app.get('/:pageId', function(req, res) {
       page: page,
       header: {
         title: page.title
-      },
-      req: req
+      }
     });
   }
 
