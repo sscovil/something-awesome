@@ -110,12 +110,13 @@ app.get('/posts/:id', function(req, res) {
     return post.id === Number(req.params.id)
   });
 
-  if (post) {res.render('post', {
-    post: post,
-    header: {
-      title: post.title
-    }
-  });
+  if (post) {
+    return res.render('post', {
+      post: post,
+      header: {
+        title: post.title
+      }
+    });
   }
 
   return res.sendStatus(404);
