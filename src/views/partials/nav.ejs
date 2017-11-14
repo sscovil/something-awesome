@@ -1,11 +1,29 @@
 <nav>
   <ul class="no-bullets">
-    <% nav.links.forEach(function(link) { %>
-    <li>
-      <a href="<%= link.path %>">
-        <%= link.text %>
-      </a>
-    </li>
+    <% if (currentPath === "/") { %>
+      <li>
+        Home
+      </li>
+    <% } else { %>
+      <li>
+        <a href="/" >
+          Home
+        </a>
+      </li>
+    <% } %>
+
+    <% pages.forEach(function(page) { %>
+      <% if (currentPath === page.path) { %>
+        <li>
+          <%= page.linkText %>
+        </li>
+      <% } else { %>
+        <li>
+          <a href="<%= page.path %>" >
+            <%= page.linkText %>
+          </a>
+        </li>
+      <% } %>
     <% }) %>
   </ul>
 </nav>
