@@ -2,7 +2,7 @@
 
 exports.up = (knex) => {
   return knex.schema.createTableIfNotExists('pages', function (table) {
-    table.text('id');
+    table.text('id').primary;
     table.text('title');
     table.text('path');
     table.text('linkText');
