@@ -2,7 +2,7 @@
 
 exports.up = (knex) => {
   return knex.schema.createTableIfNotExists('posts', function (table) {
-    table.increments('id').primary;
+    table.increments('id');
     table.text('title');
     table.text('content');
   });

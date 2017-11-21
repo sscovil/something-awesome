@@ -2,7 +2,7 @@
 
 exports.up = (knex) => {
   return knex.schema.createTableIfNotExists('contacts', function (table) {
-    table.increments('id').primary;
+    table.increments('id');
     table.text('name');
     table.text('email');
     table.text('subject');
