@@ -13,6 +13,9 @@
     "pg": "^7.3.0"
   },
   "scripts": {
+    "migrate:latest": "knex migrate:latest",
+    "migrate:rollback": "knex migrate:rollback",
+    "seed:run": "knex seed:run",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
