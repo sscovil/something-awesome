@@ -1,7 +1,7 @@
 'use strict';
 
 exports.up = (knex) => {
-  return knex.schema.createTableIfNotExists('posts', function (table) {
+  return knex.schema.createTableIfNotExists('posts', (table) => {
     table.increments('id');
     table.text('title');
     table.text('content');
