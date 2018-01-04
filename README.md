@@ -4,7 +4,7 @@ This repository is an ongoing training exercise used to teach full-stack web dev
 
 * HTML & CSS
 * JavaScript (ES6)
-* Node.js
+* Node.js (version 8.x)
 * Angular.js
 * PostgreSQL
 * REST APIs
