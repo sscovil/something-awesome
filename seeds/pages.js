@@ -18,7 +18,7 @@ exports.seed = function(knex) {
           path: '/contact',
           linkText: 'Contact',
           title: 'Contact Us!',
-          content: `<form method="POST" action="/api/forms/contact">
+          content: `<form method="POST" action="/forms/contact">
   <label for="name">Name: <span class="required">*</span></label>
   <input id="name" name="name" value="" placeholder="Jimmy Choo" autofocus required/>
 
