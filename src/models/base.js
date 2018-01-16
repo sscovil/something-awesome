@@ -151,10 +151,20 @@ class Base extends Model {
    * @return {Promise<T>}
    */
   static create(attrs) {
+    return this.createQuery(attrs)
+      .execute();
+  }
+
+  /**
+   * Generate SQL query to create a new record.
+   *
+   * @param {object} attrs - Model properties based on this.jsonSchema.
+   * @return {QueryBuilder} - Objection.js QueryBuilder object. http://vincit.github.io/objection.js/#querybuilder
+   */
+  static createQuery(attrs) {
     return this.query()
       .insert(attrs)
-      .returning('*')
-      .execute();
+      .returning('*');
   }
 
   /**
@@ -164,14 +174,24 @@ class Base extends Model {
    * @return {Promise<T>}
    */
   static delete(id) {
+    return this.deleteQuery(id)
+      .throwIfNotFound()
+      .execute();
+  }
+
+  /**
+   * Generate SQL query to delete a record by ID.
+   *
+   * @param {*} id - ID of the record to delete based on this.idColumn.
+   * @return {QueryBuilder} - Objection.js QueryBuilder object. http://vincit.github.io/objection.js/#querybuilder
+   */
+  static deleteQuery(id) {
     return this
       .query()
       .delete()
       .first()
       .where(this.idColumn, id)
-      .returning('*')
-      .throwIfNotFound()
-      .execute();
+      .returning('*');
   }
 
   /**
@@ -181,10 +201,20 @@ class Base extends Model {
    * @return {Promise<T>}
    */
   static getById(id) {
-    return this.query()
-      .findOne('id', id)
+    return this.getByIdQuery(id)
       .throwIfNotFound()
       .execute();
+  }
+
+  /**
+   * Generate SQL query to fetch a record by ID.
+   *
+   * @param {*} id - ID of the record to fetch based on this.idColumn.
+   * @return {QueryBuilder} - Objection.js QueryBuilder object. http://vincit.github.io/objection.js/#querybuilder
+   */
+  static getByIdQuery(id) {
+    return this.query()
+      .findOne('id', id);
   }
 
   /**
@@ -194,6 +224,17 @@ class Base extends Model {
    * @return {Promise<T[]>}
    */
   static getPaginated(opts = {}) {
+    return this.getPaginatedQuery(opts)
+      .execute();
+  }
+
+  /**
+   * Generate SQL query to fetch a paginated set of records.
+   *
+   * @param {object} opts - Order and pagination options.
+   * @return {QueryBuilder} - Objection.js QueryBuilder object. http://vincit.github.io/objection.js/#querybuilder
+   */
+  static getPaginatedQuery(opts = {}) {
     const { order, orderBy, page, pageSize } = Object.assign({
       order: this.defaultOrder,
       orderBy: this.defaultOrderBy,
@@ -203,8 +244,7 @@ class Base extends Model {
 
     return this.query()
       .page(page, Math.min(pageSize, this.maxPageSize))
-      .orderBy(orderBy, order)
-      .execute();
+      .orderBy(orderBy, order);
   }
 
   /**
@@ -215,13 +255,24 @@ class Base extends Model {
    * @return {Promise<T>}
    */
   static patch(id, attrs) {
+    return this.patchQuery(id, attrs)
+      .throwIfNotFound()
+      .execute();
+  }
+
+  /**
+   * Generate SQL query to update a record by ID.
+   *
+   * @param {*} id - ID of the record to update based on this.idColumn.
+   * @param {object} attrs - Model properties based on this.jsonSchema.
+   * @return {QueryBuilder} - Objection.js QueryBuilder object. http://vincit.github.io/objection.js/#querybuilder
+   */
+  static patchQuery(id, attrs) {
     return this.query()
       .patch(attrs)
       .first()
       .where(this.idColumn, id)
-      .returning('*')
-      .throwIfNotFound()
-      .execute();
+      .returning('*');
   }
 }
 
