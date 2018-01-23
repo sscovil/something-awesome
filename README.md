@@ -40,6 +40,19 @@ PostgreSQL is a powerful, open source object-relational database management syst
 * [Install PostgreSQL](http://postgresapp.com/) (MacOS only)
 * [Install PostgreSQL Command Line Tools](http://postgresapp.com/documentation/cli-tools.html) (MacOS only)
 
+### Redis
+
+Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs and geospatial indexes with radius queries. Other features include:
+
+* Transactions
+* Publish/Subscribe
+* Lua scripting
+* Keys with a limited time-to-live
+* LRU eviction of keys
+* Automatic failover
+
+* [Install Redis JS](https://github.com/NodeRedis/node_redis)
+
 ### IDE
 
 An integrated development environment (IDE) is a software application that provides comprehensive facilities to computer programmers for software development. An IDE normally consists of a source code editor, build automation tools and a debugger. Most modern IDEs have intelligent code completion and integration with version control tools like Git.

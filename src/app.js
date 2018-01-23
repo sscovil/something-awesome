@@ -7,6 +7,7 @@ const controllers = require('./controllers');
 const express = require('express');
 const middleware = require('./middleware');
 const path = require('path');
+const redis = require('redis');
 
 const app = express();
 
