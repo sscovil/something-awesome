@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/Keeeeeeeks/something-awesome#readme",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
+    "bcrypt": "^1.0.3",
     "bluebird": "^3.5.1",
     "body-parser": "^1.17.2",
     "cookie": "^0.3.1",
