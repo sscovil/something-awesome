@@ -51,7 +51,8 @@ Redis is an open source (BSD licensed), in-memory data structure store, used as 
 * LRU eviction of keys
 * Automatic failover
 
-* [Install Redis JS](https://github.com/NodeRedis/node_redis)
+* [Install Redis](https://redis.io/download#installation)
+* [Install Redis Using Homebrew](https://medium.com/@djamaldg/install-use-redis-on-macos-sierra-432ab426640e)
 
 ### IDE
 
